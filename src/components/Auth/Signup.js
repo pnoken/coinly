@@ -1,5 +1,7 @@
 import React from "react";
 import { Form, Input, Select, Row, Col, Checkbox, Button } from "antd";
+import ReCAPTCHA from "react-google-recaptcha";
+
 const { Option } = Select;
 
 const formItemLayout = {
@@ -33,6 +35,19 @@ const tailFormItemLayout = {
   },
 };
 
+async function onChange(val) {
+  const body = {
+    secret: process.env.REACT_APP_ReCAPTCHA_SECRET,
+    response: val,
+  };
+  const res = await fetch("https://www.google.com/recaptcha/api/siteverify", {
+    method: "POST",
+    body: body,
+  });
+
+  console.log("res", res);
+}
+
 function Signup() {
   const [form] = Form.useForm();
 
@@ -44,11 +59,11 @@ function Signup() {
     <Form.Item name="prefix" noStyle>
       <Select
         style={{
-          width: 70,
+          width: 80,
         }}
       >
-        <Option value="86">+233</Option>
-        <Option value="87">+87</Option>
+        <Option value="233">+233</Option>
+        <Option value="1">+1</Option>
       </Select>
     </Form.Item>
   );
@@ -167,12 +182,15 @@ function Signup() {
                 },
               ]}
             >
-              <Input />
+              <ReCAPTCHA
+                sitekey={process.env.REACT_APP_ReCAPTCHA_SITEKEY}
+                onChange={onChange}
+              />
             </Form.Item>
           </Col>
-          <Col span={12}>
+          {/* <Col span={12}>
             <Button>Get captcha</Button>
-          </Col>
+          </Col> */}
         </Row>
       </Form.Item>
 
