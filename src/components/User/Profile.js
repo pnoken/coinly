@@ -1,7 +1,51 @@
-import React from "react";
-import { Form, Input, Select, Row, Col, Checkbox, Button } from "antd";
+import React, { useState } from "react";
+import {
+  Form,
+  Input,
+  InputNumber,
+  Cascader,
+  Select,
+  Row,
+  Col,
+  Checkbox,
+  Button,
+  AutoComplete,
+} from "antd";
 const { Option } = Select;
-
+const residences = [
+  {
+    value: "zhejiang",
+    label: "Zhejiang",
+    children: [
+      {
+        value: "hangzhou",
+        label: "Hangzhou",
+        children: [
+          {
+            value: "xihu",
+            label: "West Lake",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    value: "jiangsu",
+    label: "Jiangsu",
+    children: [
+      {
+        value: "nanjing",
+        label: "Nanjing",
+        children: [
+          {
+            value: "zhonghuamen",
+            label: "Zhong Hua Men",
+          },
+        ],
+      },
+    ],
+  },
+];
 const formItemLayout = {
   labelCol: {
     xs: {
@@ -16,7 +60,7 @@ const formItemLayout = {
       span: 24,
     },
     sm: {
-      span: 8,
+      span: 16,
     },
   },
 };
@@ -33,7 +77,7 @@ const tailFormItemLayout = {
   },
 };
 
-function Signup() {
+function Profile() {
   const [form] = Form.useForm();
 
   const onFinish = (values) => {
@@ -53,13 +97,46 @@ function Signup() {
     </Form.Item>
   );
 
+  const suffixSelector = (
+    <Form.Item name="suffix" noStyle>
+      <Select
+        style={{
+          width: 70,
+        }}
+      >
+        <Option value="USD">$</Option>
+        <Option value="CNY">¥</Option>
+      </Select>
+    </Form.Item>
+  );
+  const [autoCompleteResult, setAutoCompleteResult] = useState([]);
+
+  const onWebsiteChange = (value) => {
+    if (!value) {
+      setAutoCompleteResult([]);
+    } else {
+      setAutoCompleteResult(
+        [".com", ".org", ".net"].map((domain) => `${value}${domain}`)
+      );
+    }
+  };
+
+  const websiteOptions = autoCompleteResult.map((website) => ({
+    label: website,
+    value: website,
+  }));
+
   return (
     <Form
       {...formItemLayout}
       form={form}
       name="register"
       onFinish={onFinish}
-      ToFirstError
+      initialValues={{
+        residence: ["zhejiang", "hangzhou", "xihu"],
+        prefix: "86",
+      }}
+      scrollToFirstError
     >
       <Form.Item
         name="email"
@@ -125,12 +202,26 @@ function Signup() {
         rules={[
           {
             required: true,
-            message: "Please input your username!",
+            message: "Please input your nickname!",
             whitespace: true,
           },
         ]}
       >
         <Input />
+      </Form.Item>
+
+      <Form.Item
+        name="residence"
+        label="Habitual Residence"
+        rules={[
+          {
+            type: "array",
+            required: true,
+            message: "Please select your habitual residence!",
+          },
+        ]}
+      >
+        <Cascader options={residences} />
       </Form.Item>
 
       <Form.Item
@@ -149,6 +240,73 @@ function Signup() {
             width: "100%",
           }}
         />
+      </Form.Item>
+
+      <Form.Item
+        name="donation"
+        label="Donation"
+        rules={[
+          {
+            required: true,
+            message: "Please input donation amount!",
+          },
+        ]}
+      >
+        <InputNumber
+          addonAfter={suffixSelector}
+          style={{
+            width: "100%",
+          }}
+        />
+      </Form.Item>
+
+      <Form.Item
+        name="website"
+        label="Website"
+        rules={[
+          {
+            required: true,
+            message: "Please input website!",
+          },
+        ]}
+      >
+        <AutoComplete
+          options={websiteOptions}
+          onChange={onWebsiteChange}
+          placeholder="website"
+        >
+          <Input />
+        </AutoComplete>
+      </Form.Item>
+
+      <Form.Item
+        name="intro"
+        label="Intro"
+        rules={[
+          {
+            required: true,
+            message: "Please input Intro",
+          },
+        ]}
+      >
+        <Input.TextArea showCount maxLength={100} />
+      </Form.Item>
+
+      <Form.Item
+        name="gender"
+        label="Gender"
+        rules={[
+          {
+            required: true,
+            message: "Please select gender!",
+          },
+        ]}
+      >
+        <Select placeholder="select your gender">
+          <Option value="male">Male</Option>
+          <Option value="female">Female</Option>
+          <Option value="other">Other</Option>
+        </Select>
       </Form.Item>
 
       <Form.Item
@@ -202,4 +360,4 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default Profile;
