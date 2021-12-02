@@ -1,5 +1,6 @@
 import React from "react";
 import { Flex } from "../Styled/Flex";
+import { Form } from "../Styled/Form.styled";
 
 function CallToAction() {
   return (
@@ -7,10 +8,10 @@ function CallToAction() {
       <header>
         <h1>We help you develop a good strategy for trading crypto</h1>
       </header>
-      <form>
+      <Form>
         <input placeholder="enter email" />
         <button>Join Waitlist</button>
-      </form>
+      </Form>
     </Flex>
   );
 }

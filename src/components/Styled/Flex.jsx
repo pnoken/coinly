@@ -38,10 +38,40 @@ export const Flex = styled.div`
     & > button:hover {
       background: orange;
       border: 2px solid black;
+      color: black;
     }
   }
 
   & > img {
     flex: 1;
+    width: 100%;
+  }
+
+  @media (max-width: 1545px) {
+    & > header {
+      & > h1 {
+        font-size: 2rem;
+      }
+
+      & > p {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  @media (max-width: 625px) {
+   
+      flex-direction: column;
+   
+    & > img {
+      display: none;
+    }
+
+    & header {
+      & > button {
+        font-size: 0.6rem;
+        paddingL 0.2rem;
+      }
+    }
   }
 `;
