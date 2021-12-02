@@ -1,16 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { Layout, Menu } from "antd";
-const { Header, Footer } = Layout;
+// import { Link } from "react-router-dom";
+import { Layout } from "antd";
+const { Footer } = Layout;
 
 const LayoutComponent = (props) => {
-  const navContent = [
-    { name: "Coinly", route: "/" },
-    { name: "Cryptos", route: "/cryptos" },
-    { name: "Exchanges", route: "/exchanges" },
-    { name: "Login", route: "/login" },
-    { name: "Get Started", route: "/signup" },
-  ];
+  // const navContent = [
+  //   { name: "Coinly", route: "/" },
+  //   { name: "Cryptos", route: "/cryptos" },
+  //   { name: "Exchanges", route: "/exchanges" },
+  //   { name: "Login", route: "/login" },
+  //   { name: "Get Started", route: "/signup" },
+  // ];
   return (
     <Layout className="layout">
       {/* <Header>
