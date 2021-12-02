@@ -13,7 +13,7 @@ const LayoutComponent = (props) => {
   ];
   return (
     <Layout className="layout">
-      <Header>
+      {/* <Header>
         <div className="logo" />
         <Menu theme="dark" mode="horizontal">
           {navContent.map((content, index) => {
@@ -24,7 +24,7 @@ const LayoutComponent = (props) => {
             );
           })}
         </Menu>
-      </Header>
+      </Header> */}
       {props.children}
       <Footer style={{ textAlign: "center", backgroundColor: "orange" }}>
         Coinly &copy;2021 Copyright
