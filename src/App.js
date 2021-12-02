@@ -1,24 +1,34 @@
 import React from "react";
+import { Flex } from "./components/Styled/Flex";
+import { Header } from "./components/Header";
 import LayoutComponent from "./components/Layout";
-import { SplitScreen } from "./components/SplitScreen";
+import bitcoinlogo from "./images/crypto-bitcoin.svg";
+import CallToAction from "./components/Cta/CallToAction";
 
-const LeftHandComponent = ({ name }) => {
-  return <h1 style={{ backgroundColor: "green" }}>{name}</h1>;
-};
+// const LeftHandComponent = ({ name }) => {
+//   return <h1 style={{ backgroundColor: "green" }}>{name}</h1>;
+// };
 
-const RightHandComponent = ({ message }) => {
-  return <h1 style={{ backgroundColor: "red" }}>{message}</h1>;
-};
+// const RightHandComponent = ({ message }) => {
+//   return <h1 style={{ backgroundColor: "red" }}>{message}</h1>;
+// };
 
 const App = () => {
   return (
     <LayoutComponent>
-      <div className="App container mx-auto mt-3 font-thin">
-        <SplitScreen leftWeight={2} rightWeight={2}>
-          <LeftHandComponent name="Access wide range of coin experts" />
-          <RightHandComponent message="Or Become a Coin Expert" />
-        </SplitScreen>
-      </div>
+      <Header>
+        <Flex>
+          <header>
+            <h1>Start your crypto journey with us</h1>
+            <p>Learn from crypto experts around the world</p>
+            <button>Get Started</button>
+            <button>Become a mentor</button>
+          </header>
+
+          <img src={bitcoinlogo} alt="bitcoin" />
+        </Flex>
+      </Header>
+      <CallToAction />
     </LayoutComponent>
   );
 };

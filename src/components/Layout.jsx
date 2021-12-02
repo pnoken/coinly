@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Layout, Menu, Breadcrumb } from "antd";
-const { Header, Content, Footer } = Layout;
+import { Layout, Menu } from "antd";
+const { Header, Footer } = Layout;
 
 const LayoutComponent = (props) => {
   const navContent = [
@@ -26,7 +26,7 @@ const LayoutComponent = (props) => {
         </Menu>
       </Header>
       {props.children}
-      <Footer style={{ textAlign: "center" }}>
+      <Footer style={{ textAlign: "center", backgroundColor: "orange" }}>
         Coinly &copy;2021 Copyright
       </Footer>
     </Layout>
