@@ -48,6 +48,8 @@ export const Flex = styled.div`
     width: 100%;
   }
 
+  
+
   @media (max-width: 1545px) {
     & > header {
       & > h1 {
@@ -57,6 +59,15 @@ export const Flex = styled.div`
       & > p {
         font-size: 1rem;
       }
+    }
+  }
+
+  @media (max-width: 1300px) {
+
+    flex-direction: column;
+    
+    & > img {
+      display: none;
     }
   }
 

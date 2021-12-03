@@ -1,7 +1,7 @@
 import React from "react";
 import { Form, Input, Select, Row, Col, Checkbox, Button } from "antd";
 import ReCAPTCHA from "react-google-recaptcha";
-import { SignUpContainer } from "../Styled/Signup.styled";
+import { AuthStyled } from "../Styled/Auth.styled";
 
 const { Option } = Select;
 
@@ -70,7 +70,11 @@ function Signup() {
   );
 
   return (
-    <SignUpContainer>
+    <AuthStyled>
+      <header>
+        <h1>Signup</h1>
+        <p>Fill in the information below to setup your account</p>
+      </header>
       <Form
         {...formItemLayout}
         form={form}
@@ -209,6 +213,9 @@ function Signup() {
           ]}
           {...tailFormItemLayout}
         >
+          <p>
+            Already have an account? <a href="/login">Login here</a>
+          </p>
           <Checkbox>
             I have read the <a href="/terms">agreement</a>
           </Checkbox>
@@ -219,7 +226,7 @@ function Signup() {
           </Button>
         </Form.Item>
       </Form>
-    </SignUpContainer>
+    </AuthStyled>
   );
 }
 
