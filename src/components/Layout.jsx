@@ -8,8 +8,7 @@ const LayoutComponent = (props) => {
   const navContent = [
     { name: "Coinly", route: "/" },
     // { name: "Cryptos", route: "/cryptos" },
-    { name: "Exchanges", route: "/exchanges" },
-    // { name: "Login", route: "/login" },
+
     { name: "Get Started", route: "/signup" },
   ];
   return (
@@ -31,7 +30,13 @@ const LayoutComponent = (props) => {
         </Menu>
       </Header>
       {props.children}
-      <Footer style={{ textAlign: "center", backgroundColor: "orange" }}>
+      <Footer
+        style={{
+          textAlign: "center",
+          color: "white",
+          backgroundColor: "orange",
+        }}
+      >
         Coinly &copy;2021 Copyright
       </Footer>
     </Layout>
