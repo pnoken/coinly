@@ -6,10 +6,9 @@ const { Footer } = Layout;
 
 const LayoutComponent = (props) => {
   const navContent = [
-    { name: "Coinly", route: "/" },
+    //{ name: "Coinly", route: "/" },
     // { name: "Cryptos", route: "/cryptos" },
-
-    { name: "Get Started", route: "/signup" },
+    //{ name: "Get Started", route: "/signup" },
   ];
   return (
     <Layout className="layout">
