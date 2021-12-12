@@ -9,7 +9,6 @@ export const Flex = styled.div`
   & > header {
     flex: 1;
     width: 100%;
-
     color: white;
 
     & > h1 {

@@ -21,8 +21,15 @@ const App = () => {
           <header>
             <h1>Start your crypto journey with us</h1>
             <p>Learn from crypto experts around the world</p>
-            <button>Get Started</button>
-            <button>Become a mentor</button>
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.href = "https://calendly.com/coinly/10min";
+              }}
+            >
+              Book a free appointment
+            </button>
+            {/* <button>Become a mentor</button> */}
           </header>
 
           <img src={bitcoinlogo} alt="bitcoin" />
