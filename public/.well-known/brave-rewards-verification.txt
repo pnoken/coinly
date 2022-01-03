@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: coinly.me
+Token: 359bd8ab683d052b2028459cd50c5417968112b93fec276e1d5552439ea09b5b

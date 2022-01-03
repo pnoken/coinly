@@ -31,8 +31,9 @@ const App = () => {
             </button>
             {/* <button>Become a mentor</button> */}
           </header>
-
-          <img src={bitcoinlogo} alt="bitcoin" />
+          <div>
+            <img src={bitcoinlogo} alt="bitcoin" />
+          </div>
         </Flex>
       </Header>
       <CallToAction />
