@@ -5,18 +5,24 @@ export const Flex = styled.div`
   margin: 2rem auto;
   width: 80%;
   align-items: center;
+  justify-content: space-between;
 
   & > header {
     flex: 1;
-    width: 100%;
     color: white;
+    max-width: 40%;
 
     & > h1 {
       font-weight: 900;
       font-size: 4rem;
     }
 
-    & > p {
+    & h2 {
+      font-weight: 500;
+      font-size: 3rem;
+    }
+
+    & > h3 {
       font-weight: 300;
       font-size: 2rem;
     }
@@ -33,6 +39,7 @@ export const Flex = styled.div`
       margin: 1rem;
       cursor: pointer;
       transition: 1s all;
+      width: 90%;
     }
 
     & > button:hover {
@@ -42,46 +49,31 @@ export const Flex = styled.div`
     }
   }
 
-  & > img {
-    flex: 1;
-    width: 100%;
-  }
-
-  
-
-  @media (max-width: 1545px) {
-    & > header {
-      & > h1 {
-        font-size: 2rem;
-      }
-
-      & > p {
-        font-size: 1rem;
-      }
-    }
+  & > div > img {
+    flex: 1; 
   }
 
   @media (max-width: 1300px) {
 
     flex-direction: column;
-    
-    & > img {
-      display: none;
+    align-items: center;
+
+    & > header {
+      max-width: 90%;
+    }
+
+    & > div > img {
+      width: 90%; 
     }
   }
 
   @media (max-width: 625px) {
-   
-      flex-direction: column;
-   
-    & > img {
-      display: none;
-    }
 
     & header {
       & > button {
         font-size: 0.6rem;
         paddingL 0.2rem;
+        
       }
     }
   }

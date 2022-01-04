@@ -20,7 +20,7 @@ const App = () => {
         <Flex>
           <header>
             <h1>Start your crypto journey with us</h1>
-            <p>Learn from crypto experts around the world</p>
+            <h3>Learn from crypto experts around the world</h3>
             <button
               onClick={(e) => {
                 e.preventDefault();

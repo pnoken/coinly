@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const StyledForm = styled.form`
   display: flex;
   align-items: center;
-  flex-direction: column;
+  max-width: 90%;
 
   & > button,
   input {
@@ -16,6 +16,7 @@ export const StyledForm = styled.form`
     padding: 1rem;
     margin: 1rem;
     transition: 1s all;
+    width: 80%;
   }
 
   & input {
