@@ -16,7 +16,7 @@ export const StyledForm = styled.form`
     padding: 1rem;
     margin: 1rem;
     transition: 1s all;
-    width: 50%;
+    width: 90%;
   }
 
   & input {

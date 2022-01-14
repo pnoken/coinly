@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
 
 import { contractABI, contractAddress } from "../utils/constants";
+import Toast from "../components/Toast";
 
 export const TxnContext = React.createContext();
 
@@ -25,6 +26,9 @@ export const TxnProvider = ({ children }) => {
   });
   const [isLoading, setIsLoading] = useState(false);
   const [txnCount, setTxnCount] = useState(localStorage.getItem("txnCount"));
+  const [toast, setToast] = useState(false);
+  const [errors, setErrors] = useState({ title: "", message: "" });
+
   const handleChange = (e, name) => {
     setFormData((prevState) => ({ ...prevState, [name]: e.target.value }));
   };
@@ -55,8 +59,8 @@ export const TxnProvider = ({ children }) => {
       });
       setCurrentAccount(accounts[0]);
     } catch (error) {
-      console.log(error);
-      throw new Error("No ethereum object");
+      console.log(error.message);
+      return <Toast title={""} message={error.message} />;
     }
   };
 

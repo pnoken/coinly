@@ -21,9 +21,10 @@ function CallToAction() {
   return (
     <Cta>
       <div>
-        <img src={cryptoStrategy} />
+        <img src={cryptoStrategy} alt="crypto strategy" />
       </div>
       <StyledForm onSubmit={subscribe}>
+        <h2>We can help you develop a good strategy for trading crypto</h2>
         <input
           placeholder="enter email"
           value={email}
