@@ -23,7 +23,8 @@ export const TxnProvider = ({ children }) => {
     keyword: "",
     message: "",
   });
-
+  const [isLoading, setIsLoading] = useState(false);
+  const [txnCount, setTxnCount] = useState(localStorage.getItem("txnCount"));
   const handleChange = (e, name) => {
     setFormData((prevState) => ({ ...prevState, [name]: e.target.value }));
   };
@@ -64,20 +65,35 @@ export const TxnProvider = ({ children }) => {
       if (!ethereum) return alert("Please install metamask");
       const { addressTo, amount, keyword, message } = formData;
       const txnContract = getEthereumContract();
-      const parsedAmount = ethers.utils.parseEther(amount) 
+      const parsedAmount = ethers.utils.parseEther(amount);
 
       await ethereum.request({
-          method: 'eth_sendTransaction',
-          params: [
-              {
-                  from: currentAccount;
-                  to: addressTo,
-                  gas: '0x5208',
-                  value: parsedAmount._hex,
-              }
-          ]
-      })
+        method: "eth_sendTransaction",
+        params: [
+          {
+            from: currentAccount,
+            to: addressTo,
+            gas: "0x5208",
+            value: parsedAmount._hex,
+          },
+        ],
+      });
 
+      const txnHash = await txnContract.addToBlockchain(
+        addressTo,
+        parsedAmount,
+        message,
+        keyword
+      );
+
+      setIsLoading(true);
+      console.log(`Loading -${txnHash.hash}`);
+      await txnHash.wait();
+      setIsLoading(false);
+      console.log(`Success -${txnHash.hash}`);
+
+      const txnCount = await txnContract.getTransactionCount();
+      setTxnCount(txnCount.toNumber());
       //get the data from the form
     } catch (error) {
       console.log(error);
