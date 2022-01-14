@@ -26,6 +26,7 @@ export const StyledForm = styled.form`
   & > button {
     cursor: pointer;
     background: #f7931a;
+    width: 50%;
   }
 
   & > button:hover {
