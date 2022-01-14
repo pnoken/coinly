@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
+import { openNotification } from "../components/Toast";
 
 import { contractABI, contractAddress } from "../utils/constants";
-import Toast from "../components/Toast";
 
 export const TxnContext = React.createContext();
 
@@ -24,10 +24,10 @@ export const TxnProvider = ({ children }) => {
     keyword: "",
     message: "",
   });
-  const [isLoading, setIsLoading] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
   const [txnCount, setTxnCount] = useState(localStorage.getItem("txnCount"));
-  const [toast, setToast] = useState(false);
-  const [errors, setErrors] = useState({ title: "", message: "" });
+  // const [toast, setToast] = useState(false);
+  // const [errors, setErrors] = useState({ title: "", message: "" });
 
   const handleChange = (e, name) => {
     setFormData((prevState) => ({ ...prevState, [name]: e.target.value }));
@@ -35,24 +35,31 @@ export const TxnProvider = ({ children }) => {
 
   const checkIfWalletIsConnected = async () => {
     try {
-      if (!ethereum) return alert("Please install metamask");
+      if (!ethereum)
+        openNotification(
+          "metamask not installed",
+          "It looks like you dont have metamask in your device"
+        );
 
       const accounts = await ethereum.request({ method: "eth_accounts" });
 
       if (accounts.length) {
         setCurrentAccount(accounts[0]);
       } else {
-        console.log("No accounts found");
+        openNotification("", "No Accounts found");
       }
     } catch (error) {
-      console.log(error);
-      throw new Error("No ethereum object");
+      openNotification("", error.message);
     }
   };
 
   const connectWallet = async () => {
     try {
-      if (!ethereum) return alert("Please install metamask");
+      if (!ethereum)
+        openNotification(
+          "metamask not installed",
+          "It looks like you dont have metamask in your device"
+        );
 
       const accounts = await ethereum.request({
         method: "eth_requestAccounts",
@@ -60,13 +67,20 @@ export const TxnProvider = ({ children }) => {
       setCurrentAccount(accounts[0]);
     } catch (error) {
       console.log(error.message);
-      return <Toast title={""} message={error.message} />;
+      openNotification(
+        "metamask not installed",
+        "It looks like you dont have metamask in your device"
+      );
     }
   };
 
   const sendTxn = async () => {
     try {
-      if (!ethereum) return alert("Please install metamask");
+      if (!ethereum)
+        openNotification(
+          "metamask not installed",
+          "It looks like you dont have metamask in your device"
+        );
       const { addressTo, amount, keyword, message } = formData;
       const txnContract = getEthereumContract();
       const parsedAmount = ethers.utils.parseEther(amount);
@@ -90,10 +104,9 @@ export const TxnProvider = ({ children }) => {
         keyword
       );
 
-      setIsLoading(true);
       console.log(`Loading -${txnHash.hash}`);
       await txnHash.wait();
-      setIsLoading(false);
+
       console.log(`Success -${txnHash.hash}`);
 
       const txnCount = await txnContract.getTransactionCount();
@@ -116,6 +129,8 @@ export const TxnProvider = ({ children }) => {
         formData,
         setFormData,
         handleChange,
+        sendTxn,
+        txnCount,
       }}
     >
       {children}

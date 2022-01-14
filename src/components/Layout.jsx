@@ -15,18 +15,19 @@ const LayoutComponent = (props) => {
     //{ name: "Get Started", route: "/signup" },
   ];
 
-  const { connectWallet, currentAccount, formData, handleChange, sendTxn } =
-    useContext(TxnContext);
+  // formData, handleChange, sendTxn
 
-  const handleSubmit = (e) => {
-    const { addressTo, amount, keyword, message } = formData;
+  const { connectWallet, currentAccount } = useContext(TxnContext);
 
-    e.preventDefault();
+  // const handleSubmit = (e) => {
+  //   const { addressTo, amount, keyword, message } = formData;
 
-    if (!addressTo || !amount || !keyword || !message) return;
+  //   e.preventDefault();
 
-    sendTxn();
-  };
+  //   if (!addressTo || !amount || !keyword || !message) return;
+
+  //   sendTxn();
+  // };
   return (
     <Layout className="layout">
       <Nav>
