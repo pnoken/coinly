@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const Cta = styled.section`
-  background: black;
-  & > h1 {
-    font-weight: 400;
-    font-size: 2rem;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  margin: auto;
 `;

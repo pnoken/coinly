@@ -2,11 +2,11 @@ import styled from "styled-components";
 
 export const StyledForm = styled.form`
   display: flex;
+  flex-direction: column;
   align-items: center;
-  max-width: 90%;
+  flex: 1;
 
-  & > button,
-  input {
+  & > input {
     border-radius: 50px;
     border: 2px solid white;
     outline: none;
@@ -16,21 +16,10 @@ export const StyledForm = styled.form`
     padding: 1rem;
     margin: 1rem;
     transition: 1s all;
-    width: 80%;
+    width: 50%;
   }
 
   & input {
     color: orange;
-  }
-
-  & > button {
-    cursor: pointer;
-    background: #f7931a;
-    width: 50%;
-  }
-
-  & > button:hover {
-    background: orange;
-    border: 2px solid black;
   }
 `;

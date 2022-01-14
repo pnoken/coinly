@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import { Flex } from "../Styled/Flex";
 import { StyledForm } from "../Styled/Form.styled";
 import axios from "axios";
+import { Button } from "../Styled/Button.styled";
+import { Cta } from "../Styled/Cta.styled";
+import cryptoStrategy from "../../images/strategy.svg";
 
 function CallToAction() {
   const [email, setEmail] = useState("");
@@ -17,19 +19,19 @@ function CallToAction() {
       .then((res) => console.log(res));
   };
   return (
-    <Flex>
-      <header>
-        <h2>We help you develop a good strategy for trading crypto</h2>
-      </header>
+    <Cta>
+      <div>
+        <img src={cryptoStrategy} />
+      </div>
       <StyledForm onSubmit={subscribe}>
         <input
           placeholder="enter email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <button>Join Waitlist</button>
+        <Button>Join Waitlist</Button>
       </StyledForm>
-    </Flex>
+    </Cta>
   );
 }
 
