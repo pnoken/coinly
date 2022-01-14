@@ -7,7 +7,18 @@ import bitcoinlogo from "./images/crypto-bitcoin.svg";
 import CallToAction from "./components/Cta/CallToAction";
 
 const App = () => {
-  const { connectWallet, currentAccount } = useContext(TxnContext);
+  const { connectWallet, currentAccount, formData, handleChange, sendTxn } =
+    useContext(TxnContext);
+
+  const handleSubmit = (e) => {
+    const { addressTo, amount, keyword, message } = formData;
+
+    e.preventDefault();
+
+    if (!addressTo || !amount || !keyword || !message) return;
+
+    sendTxn();
+  };
 
   return (
     <LayoutComponent>

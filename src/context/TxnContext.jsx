@@ -12,11 +12,21 @@ const getEthereumContract = () => {
   const signer = provider.getSigner();
   const txnContract = new ethers.Contract(contractAddress, contractABI, signer);
 
-  console.log({ provider, signer, txnContract });
+  return txnContract;
 };
 
 export const TxnProvider = ({ children }) => {
   const [currentAccount, setCurrentAccount] = useState("");
+  const [formData, setFormData] = useState({
+    addressTo: "",
+    amount: "",
+    keyword: "",
+    message: "",
+  });
+
+  const handleChange = (e, name) => {
+    setFormData((prevState) => ({ ...prevState, [name]: e.target.value }));
+  };
 
   const checkIfWalletIsConnected = async () => {
     try {
@@ -49,11 +59,45 @@ export const TxnProvider = ({ children }) => {
     }
   };
 
+  const sendTxn = async () => {
+    try {
+      if (!ethereum) return alert("Please install metamask");
+      const { addressTo, amount, keyword, message } = formData;
+      const txnContract = getEthereumContract();
+      const parsedAmount = ethers.utils.parseEther(amount) 
+
+      await ethereum.request({
+          method: 'eth_sendTransaction',
+          params: [
+              {
+                  from: currentAccount;
+                  to: addressTo,
+                  gas: '0x5208',
+                  value: parsedAmount._hex,
+              }
+          ]
+      })
+
+      //get the data from the form
+    } catch (error) {
+      console.log(error);
+      throw new Error("No ethereum object.");
+    }
+  };
+
   useEffect(() => {
     checkIfWalletIsConnected();
   }, []);
   return (
-    <TxnContext.Provider value={{ connectWallet, currentAccount }}>
+    <TxnContext.Provider
+      value={{
+        connectWallet,
+        currentAccount,
+        formData,
+        setFormData,
+        handleChange,
+      }}
+    >
       {children}
     </TxnContext.Provider>
   );
