@@ -4,7 +4,17 @@ export const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex: 1;
+  max-width: 40%;
+
+  & h1 {
+    font-weight: 900;
+    font-size: 3rem;
+  }
+
+  & h2 {
+    font-weight: 400;
+    font-size: 1rem;
+  }
 
   & > input {
     border-radius: 50px;
@@ -16,10 +26,18 @@ export const StyledForm = styled.form`
     padding: 1rem;
     margin: 1rem;
     transition: 1s all;
-    width: 90%;
+    width: 100%;
   }
 
   & input {
     color: orange;
   }
+
+  @media (max-width: 1300px) {
+      max-width: 90%;
+    
+
+    & > div > img {
+      width: 90%;
+    }
 `;

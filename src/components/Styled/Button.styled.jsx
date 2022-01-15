@@ -12,9 +12,9 @@ export const Button = styled.button`
   margin: 1rem;
   cursor: pointer;
   transition: 1s all;
-  width: 90%;
+  width: 100%;
 
-  & :hover {
+  :hover {
     background: orange;
     border: 2px solid black;
     color: black;

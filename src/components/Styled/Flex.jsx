@@ -10,11 +10,11 @@ export const Flex = styled.div`
   & > header {
     flex: 1;
     color: white;
-    max-width: 100%;
+    max-width: 40%;
 
     & > h1 {
       font-weight: 900;
-      font-size: 4rem;
+      font-size: 3rem;
     }
 
     & h2 {

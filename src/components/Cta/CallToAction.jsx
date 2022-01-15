@@ -24,7 +24,11 @@ function CallToAction() {
         <img src={cryptoStrategy} alt="crypto strategy" />
       </div>
       <StyledForm onSubmit={subscribe}>
-        <h2>We can help you develop a good strategy for trading crypto</h2>
+        <h1>Develop a good strategy for trading crypto</h1>
+        <h2>
+          We can help you develop a good strategy for trading crypto. Subscribe
+          to our waitlist and we'd let you know when it is your turn
+        </h2>
         <input
           placeholder="enter email"
           value={email}
