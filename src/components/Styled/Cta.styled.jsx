@@ -19,4 +19,13 @@ export const Cta = styled.section`
       width: 90%;
     }
   }
+
+  @media (max-width: 760px) {
+    width: 90%;
+
+    & h1 {
+      font-weight: 900;
+      font-size: 2rem;
+    }
+  }
 `;

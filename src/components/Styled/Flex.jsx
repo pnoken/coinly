@@ -44,4 +44,27 @@ export const Flex = styled.div`
       width: 90%;
     }
   }
+
+  @media (max-width: 760px) {
+    width: 90%;
+
+    & > header {
+      max-width: 100%;
+
+      & > h1 {
+        font-weight: 900;
+        font-size: 2rem;
+      }
+
+      & h2 {
+        font-weight: 500;
+        font-size: 2rem;
+      }
+
+      & > h3 {
+        font-weight: 300;
+        font-size: 1.5rem;
+      }
+    }
+  }
 `;
