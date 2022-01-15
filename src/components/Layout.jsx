@@ -57,8 +57,7 @@ const LayoutComponent = (props) => {
       <Footer
         style={{
           textAlign: "center",
-          color: "white",
-          backgroundColor: "orange",
+          color: "black",
         }}
       >
         Coinly &copy;2021 Copyright
