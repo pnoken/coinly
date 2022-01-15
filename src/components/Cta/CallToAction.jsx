@@ -4,6 +4,7 @@ import axios from "axios";
 import { Button } from "../Styled/Button.styled";
 import { Cta } from "../Styled/Cta.styled";
 import cryptoStrategy from "../../images/strategy.svg";
+import { openNotification } from "../Toast";
 
 function CallToAction() {
   const [email, setEmail] = useState("");
@@ -16,7 +17,7 @@ function CallToAction() {
           email: email,
         }
       )
-      .then((res) => console.log(res));
+      .then((res) => openNotification(res, res));
   };
   return (
     <Cta>
