@@ -8,7 +8,11 @@ export const NavSection = styled.section`
   margin: 2rem auto;
   width: 80%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+
+  & > div > img {
+    width: 100px;
+  }
 
   & > button {
     border-radius: 50px;

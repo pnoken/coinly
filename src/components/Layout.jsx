@@ -5,6 +5,7 @@ import { Nav, NavSection } from "./Styled/Nav.styled";
 import { useContext } from "react";
 import { TxnContext } from "../context/TxnContext";
 import { Button } from "./Styled/Button.styled";
+import coinlylogo from "../images/coinly_logo.svg";
 
 const { Footer } = Layout;
 
@@ -32,7 +33,9 @@ const LayoutComponent = (props) => {
     <Layout className="layout">
       <Nav>
         <NavSection>
-          <div className="logo" />
+          <div className="logo">
+            <img src={coinlylogo} alt="Coinly logo" />
+          </div>
           <Menu
             style={{ textAlign: "center", backgroundColor: "orange" }}
             theme="dark"
