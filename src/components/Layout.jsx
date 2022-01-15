@@ -47,7 +47,7 @@ const LayoutComponent = (props) => {
             })}
           </Menu>
           {!currentAccount && (
-            <Button onClick={connectWallet} width="20%">
+            <Button onClick={connectWallet} width="40%">
               Connect Wallet
             </Button>
           )}

@@ -14,6 +14,7 @@ const App = () => {
             <h1>Start your crypto journey with us</h1>
             <h3>Learn from crypto experts around the world</h3>
             <Button
+              width="90%"
               onClick={(e) => {
                 e.preventDefault();
                 window.location.href = "https://calendly.com/coinly/10min";

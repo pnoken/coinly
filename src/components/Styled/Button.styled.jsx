@@ -12,11 +12,15 @@ export const Button = styled.button`
   margin: 1rem;
   cursor: pointer;
   transition: 1s all;
-  width: 100%;
+  width: ${({ width }) => width || "100%"};
 
   :hover {
     background: orange;
     border: 2px solid black;
     color: black;
+  }
+
+  @media (max-width: 760px) {
+    width: 90%;
   }
 `;
