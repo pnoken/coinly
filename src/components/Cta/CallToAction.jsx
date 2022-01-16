@@ -5,19 +5,35 @@ import { Button } from "../Styled/Button.styled";
 import { Cta } from "../Styled/Cta.styled";
 import cryptoStrategy from "../../images/strategy.svg";
 import { openNotification } from "../Toast";
+import { Spin } from "antd";
 
 function CallToAction() {
   const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
   const subscribe = (e) => {
+    setLoading(true);
     e.preventDefault();
     axios
-      .post(
-        "https://coinly-19698-default-rtdb.europe-west1.firebasedatabase.app",
-        {
-          email: email,
+      .post("https://coinly-be.herokuapp.com/waitlist", {
+        email: email,
+      })
+      .then((res) => {
+        setLoading(false);
+        openNotification(res.statusText, res.data);
+        setEmail("");
+      })
+      .catch((err) => {
+        setLoading(false);
+        if (err.response) {
+          openNotification(err.response.statusText, err.response.data);
         }
-      )
-      .then((res) => openNotification(res, res));
+        if (!err.response) {
+          openNotification(
+            "Error",
+            "Sorry an error occured. Kindly try again later"
+          );
+        }
+      });
   };
   return (
     <Cta>
@@ -32,10 +48,18 @@ function CallToAction() {
         </h2>
         <input
           placeholder="enter email"
+          type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <Button>Join Waitlist</Button>
+        {loading ? (
+          <Button disabled="true">
+            <Spin />
+            Join Waitlist
+          </Button>
+        ) : (
+          <Button>Join Waitlist</Button>
+        )}
       </StyledForm>
     </Cta>
   );
