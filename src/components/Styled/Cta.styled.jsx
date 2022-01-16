@@ -7,7 +7,15 @@ export const Cta = styled.section`
   width: 80%;
   margin: auto;
 
-  @media (max-width: 1300px) {
+  & > div {
+    flex: 1;
+  }
+
+  & > div > img {
+    max-width: 90%;
+  }
+
+  @media (max-width: 900px) {
     flex-direction: column;
     align-items: center;
 
@@ -16,7 +24,7 @@ export const Cta = styled.section`
     }
 
     & > div > img {
-      width: 90%;
+      max-width: 90%;
     }
   }
 

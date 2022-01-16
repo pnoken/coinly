@@ -10,7 +10,7 @@ export const Flex = styled.div`
   & > header {
     flex: 1;
     color: white;
-    max-width: 40%;
+    max-width: 90%;
 
     & > h1 {
       font-weight: 900;
@@ -28,11 +28,15 @@ export const Flex = styled.div`
     }
   }
 
-  & > div > img {
+  & > div {
     flex: 1;
   }
 
-  @media (max-width: 1300px) {
+  & > div > img {
+    max-width: 90%;
+  }
+
+  @media (max-width: 900px) {
     flex-direction: column;
     align-items: center;
 

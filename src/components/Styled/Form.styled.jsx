@@ -4,7 +4,8 @@ export const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 40%;
+  max-width: 90%;
+  flex: 1;
 
   & h1 {
     font-weight: 900;
