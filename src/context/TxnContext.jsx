@@ -36,8 +36,8 @@ export const TxnProvider = ({ children }) => {
   const checkIfWalletIsConnected = async () => {
     try {
       if (!ethereum)
-        openNotification(
-          "metamask not installed",
+        return openNotification(
+          "Please Install metamask",
           "It looks like you dont have metamask in your device"
         );
 
@@ -56,8 +56,8 @@ export const TxnProvider = ({ children }) => {
   const connectWallet = async () => {
     try {
       if (!ethereum)
-        openNotification(
-          "metamask not installed",
+        return openNotification(
+          "Metamask not installed",
           "It looks like you dont have metamask in your device"
         );
 
@@ -66,21 +66,13 @@ export const TxnProvider = ({ children }) => {
       });
       setCurrentAccount(accounts[0]);
     } catch (error) {
-      console.log(error.message);
-      openNotification(
-        "metamask not installed",
-        "It looks like you dont have metamask in your device"
-      );
+      console.log(error);
+      openNotification("No Ethereum Object", "No Ethereum Accounts Found");
     }
   };
 
   const sendTxn = async () => {
     try {
-      if (!ethereum)
-        openNotification(
-          "metamask not installed",
-          "It looks like you dont have metamask in your device"
-        );
       const { addressTo, amount, keyword, message } = formData;
       const txnContract = getEthereumContract();
       const parsedAmount = ethers.utils.parseEther(amount);
@@ -114,7 +106,7 @@ export const TxnProvider = ({ children }) => {
       //get the data from the form
     } catch (error) {
       console.log(error);
-      throw new Error("No ethereum object.");
+      openNotification("No ethereum object", "No ETH accounts found");
     }
   };
 
