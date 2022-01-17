@@ -1,97 +1,115 @@
-import { Form, Input, Button, Checkbox } from "antd";
-import { UserOutlined, LockOutlined } from "@ant-design/icons";
-import { AuthStyled } from "../Styled/Auth.styled";
+import { Link } from "react-router-dom";
+import {
+  Layout,
+  Button,
+  Row,
+  Col,
+  Typography,
+  Form,
+  Input,
+  Switch,
+} from "antd";
+import signinbg from "../../images/sign_in.svg";
+
+const { Title } = Typography;
+const { Content } = Layout;
+
+function onChange(checked) {
+  console.log(`switch to ${checked}`);
+}
 
 const LoginForm = () => {
   const onFinish = (values) => {
-    console.log("Received values of form: ", values);
+    console.log("Success:", values);
   };
 
-  const formItemLayout = {
-    labelCol: {
-      xs: {
-        span: 24,
-      },
-      sm: {
-        span: 8,
-      },
-    },
-    wrapperCol: {
-      xs: {
-        span: 24,
-      },
-      sm: {
-        span: 8,
-      },
-    },
+  const onFinishFailed = (errorInfo) => {
+    console.log("Failed:", errorInfo);
   };
 
   return (
-    <AuthStyled>
-      <header>
-        <h1>Signup</h1>
-        <p>Fill in the information below to setup your account</p>
-      </header>
-      <Form
-        {...formItemLayout}
-        name="normal_login"
-        className="login-form"
-        initialValues={{
-          remember: true,
-        }}
-        onFinish={onFinish}
-      >
-        <Form.Item
-          name="username"
-          rules={[
-            {
-              required: true,
-              message: "Please input your Username!",
-            },
-          ]}
+    <Content className="signin">
+      <Row gutter={[24, 0]} justify="space-around">
+        <Col
+          xs={{ span: 24, offset: 0 }}
+          lg={{ span: 6, offset: 2 }}
+          md={{ span: 12 }}
         >
-          <Input
-            prefix={<UserOutlined className="site-form-item-icon" />}
-            placeholder="Username"
-          />
-        </Form.Item>
-        <Form.Item
-          name="password"
-          rules={[
-            {
-              required: true,
-              message: "Please input your Password!",
-            },
-          ]}
-        >
-          <Input
-            prefix={<LockOutlined className="site-form-item-icon" />}
-            type="password"
-            placeholder="Password"
-          />
-        </Form.Item>
-        <Form.Item>
-          <Form.Item name="remember" valuePropName="checked" noStyle>
-            <Checkbox>Remember me</Checkbox>
-          </Form.Item>
-
-          <a className="login-form-forgot" href="/forgot">
-            Forgot password
-          </a>
-        </Form.Item>
-
-        <Form.Item>
-          <Button
-            type="primary"
-            htmlType="submit"
-            className="login-form-button"
+          <Title className="mb-15">Sign In</Title>
+          <Title className="font-regular text-muted" level={5}>
+            Enter your email and password to sign in
+          </Title>
+          <Form
+            onFinish={onFinish}
+            onFinishFailed={onFinishFailed}
+            layout="vertical"
+            className="row-col"
           >
-            Log in
-          </Button>
-          Or <a href="/signup">signup now!</a>
-        </Form.Item>
-      </Form>
-    </AuthStyled>
+            <Form.Item
+              className="username"
+              label="Email"
+              name="email"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input your email!",
+                },
+              ]}
+            >
+              <Input placeholder="Email" />
+            </Form.Item>
+
+            <Form.Item
+              className="username"
+              label="Password"
+              name="password"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input your password!",
+                },
+              ]}
+            >
+              <Input placeholder="Password" />
+            </Form.Item>
+
+            <Form.Item
+              name="remember"
+              className="aligin-center"
+              valuePropName="checked"
+            >
+              <Switch defaultChecked onChange={onChange} />
+              Remember me
+            </Form.Item>
+
+            <Form.Item>
+              <Button
+                type="primary"
+                htmlType="submit"
+                style={{ width: "100%" }}
+              >
+                SIGN IN
+              </Button>
+            </Form.Item>
+            <p className="font-semibold text-muted">
+              Don't have an account?{" "}
+              <Link to="/sign-up" className="text-dark font-bold">
+                Sign Up
+              </Link>
+            </p>
+          </Form>
+        </Col>
+        <Col
+          className="sign-img"
+          style={{ padding: 12 }}
+          xs={{ span: 24 }}
+          lg={{ span: 12 }}
+          md={{ span: 12 }}
+        >
+          <img src={signinbg} alt="" />
+        </Col>
+      </Row>
+    </Content>
   );
 };
 

@@ -11,7 +11,7 @@ export const NavSection = styled.section`
   justify-content: space-between;
 
   & > div > img {
-    width: 100px;
+    width: 50px;
   }
 
   & > button {
