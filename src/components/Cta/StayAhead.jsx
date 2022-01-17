@@ -9,8 +9,8 @@ function StayAhead() {
         <header>
           <h1>Stay Ahead of your crypto peers</h1>
           <h2>
-            Avoid common mistakes by learning and copying trades of top traders
-            on Binance, FTX and other trading platforms.
+            Learn about top crypto projects and be amongst the early birds. Copy
+            trades of top traders from Binance, FTX and other trading platforms.
           </h2>
         </header>
         <div>
