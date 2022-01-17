@@ -4,6 +4,8 @@ import LayoutComponent from "./components/Layout";
 import bitcoinlogo from "./images/crypto-bitcoin.svg";
 import CallToAction from "./components/Cta/CallToAction";
 import { Button } from "./components/Styled/Button.styled";
+import StayAhead from "./components/Cta/StayAhead";
+import SocialMedia from "./components/Cta/MoreThanSocialMedia";
 
 const App = () => {
   return (
@@ -28,6 +30,8 @@ const App = () => {
           </div>
         </Flex>
       </Header>
+      <SocialMedia />
+      <StayAhead />
       <CallToAction />
     </LayoutComponent>
   );
