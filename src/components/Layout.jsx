@@ -6,6 +6,7 @@ import { useContext } from "react";
 import { TxnContext } from "../context/TxnContext";
 import { Button } from "./Styled/Button.styled";
 import coinlylogo from "../images/coinly_logo.svg";
+import './Layout.css'
 
 const { Footer } = Layout;
 
@@ -31,7 +32,7 @@ const LayoutComponent = (props) => {
   // };
   return (
     <Layout className="layout">
-      <Nav>
+<div className="marquee" id="coinmarketcap-widget-marquee" coins="1,1027,825,1839,3890,1274,3794,7653,6636" currency="USD" theme="light" transparent="false" show-symbol-logo="true"></div>      <Nav>
         <NavSection>
           <div className="logo">
             <img src={coinlylogo} alt="Coinly logo" />

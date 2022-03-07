@@ -12,7 +12,7 @@ const App = () => {
     <LayoutComponent>
       <Header>
         <Flex>
-          <header>
+          <header>  
             <h1>Start your crypto journey with us</h1>
             <h3>Learn from crypto experts around the world</h3>
             <Button
