@@ -9,23 +9,11 @@ import './Layout.css'
 const { Footer } = Layout;
 
 const LayoutComponent = (props) => {
-  const navContent = [
-    //{ name: "Coinly", route: "/" },
-    // { name: "Cryptos", route: "/cryptos" },
-    //{ name: "Get Started", route: "/signup" },
-  ];
+ 
 
  
 
-  // const handleSubmit = (e) => {
-  //   const { addressTo, amount, keyword, message } = formData;
-
-  //   e.preventDefault();
-
-  //   if (!addressTo || !amount || !keyword || !message) return;
-
-  //   sendTxn();
-  // };
+  
   return (
     <Layout className="layout">
 <div className="marquee" id="coinmarketcap-widget-marquee" coins="1,1027,825,1839,3890,1274,3794,7653,6636" currency="USD" theme="light" transparent="false" show-symbol-logo="true"></div>      <Nav>
@@ -33,19 +21,7 @@ const LayoutComponent = (props) => {
           <div className="logo">
             <img src={coinlylogo} alt="Coinly logo" />
           </div>
-          <Menu
-            style={{ textAlign: "center", backgroundColor: "orange" }}
-            theme="dark"
-            mode="horizontal"
-          >
-            {navContent.map((content, index) => {
-              return (
-                <Menu.Item key={index + 1}>
-                  <Link to={content.route}>{content.name}</Link>
-                </Menu.Item>
-              );
-            })}
-          </Menu>
+          
      
             <Button width="20%">
               Go to App
@@ -60,7 +36,7 @@ const LayoutComponent = (props) => {
           color: "black",
         }}
       >
-        Coinly &copy;2021 Copyright
+        &copy;2022 Coinly
       </Footer>
     </Layout>
   );
