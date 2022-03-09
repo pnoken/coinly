@@ -13,8 +13,8 @@ const App = () => {
       <Header>
         <Flex>
           <header>  
-            <h1>Start your crypto journey with us</h1>
-            <h3>Learn from crypto experts around the world</h3>
+            <h1>Maximize your coin usage</h1>
+            <h3>Earn high returns from DeFi investments</h3>
             <Button
               width="90%"
               onClick={(e) => {

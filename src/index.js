@@ -6,18 +6,18 @@ import "antd/dist/antd.css";
 import SignupPage from "./pages/Signup";
 import LoginPage from "./pages/login";
 import Faq from "./components/Faq";
-import { TxnProvider } from "./context/TxnContext";
+// import { TxnProvider } from "./context/TxnContext";
 
 ReactDOM.render(
   <BrowserRouter>
-    <TxnProvider>
+   
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/faqs" element={<Faq />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
       </Routes>
-    </TxnProvider>
+    
   </BrowserRouter>,
   document.getElementById("root")
 );

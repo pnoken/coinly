@@ -2,8 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Layout, Menu } from "antd";
 import { Nav, NavSection } from "./Styled/Nav.styled";
-import { useContext } from "react";
-import { TxnContext } from "../context/TxnContext";
 import { Button } from "./Styled/Button.styled";
 import coinlylogo from "../images/coinly_logo.svg";
 import './Layout.css'
@@ -17,9 +15,7 @@ const LayoutComponent = (props) => {
     //{ name: "Get Started", route: "/signup" },
   ];
 
-  // formData, handleChange, sendTxn
-
-  const { connectWallet, currentAccount } = useContext(TxnContext);
+ 
 
   // const handleSubmit = (e) => {
   //   const { addressTo, amount, keyword, message } = formData;
@@ -50,11 +46,11 @@ const LayoutComponent = (props) => {
               );
             })}
           </Menu>
-          {!currentAccount && (
-            <Button onClick={connectWallet} width="40%">
-              Connect Wallet
+     
+            <Button width="20%">
+              Go to App
             </Button>
-          )}
+        
         </NavSection>
       </Nav>
       {props.children}
