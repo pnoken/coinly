@@ -1,6 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { Layout, Menu } from "antd";
+import { Layout } from "antd";
 import { Nav, NavSection } from "./Styled/Nav.styled";
 import { Button } from "./Styled/Button.styled";
 import coinlylogo from "../images/coinly_logo.svg";
@@ -9,24 +8,16 @@ import './Layout.css'
 const { Footer } = Layout;
 
 const LayoutComponent = (props) => {
- 
-
- 
-
-  
   return (
     <Layout className="layout">
 <div className="marquee" id="coinmarketcap-widget-marquee" coins="1,1027,825,1839,3890,1274,3794,7653,6636" currency="USD" theme="light" transparent="false" show-symbol-logo="true"></div>      <Nav>
         <NavSection>
           <div className="logo">
             <img src={coinlylogo} alt="Coinly logo" />
-          </div>
-          
-     
+          </div> 
             <Button width="20%">
               Go to App
-            </Button>
-        
+            </Button>  
         </NavSection>
       </Nav>
       {props.children}
@@ -36,7 +27,7 @@ const LayoutComponent = (props) => {
           color: "black",
         }}
       >
-        &copy;2022 Coinly
+        &copy;2022  Coinly
       </Footer>
     </Layout>
   );
