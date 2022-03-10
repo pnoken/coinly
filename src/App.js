@@ -13,16 +13,15 @@ const App = () => {
       <Header>
         <Flex>
           <header>  
-            <h1>Maximize your coin usage</h1>
-            <h3>Earn high returns from DeFi investments</h3>
+            <h1>Maximize your crypto returns</h1>
+            <h3>Earn high APY from DeFi investments</h3>
             <Button
               width="40%"
-              // onClick={(e) => {
-              //   e.preventDefault();
-              //   window.location.href = "https://calendly.com/coinly/10min";
-              // }}
+              
             >
-              Coming Soon
+              <a href="#learn-more">
+              Learn More
+              </a>
             </Button>
           </header>
           <div>

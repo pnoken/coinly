@@ -9,7 +9,7 @@ function SocialMedia() {
         <div>
           <img src={socialInteraction} alt="crypto strategy" />
         </div>
-        <header>
+        <header id="learn-more">
           <h1>More than just a social media for crypto ethusiasts</h1>
           <h2>
             Interact with your crypto peers and learn from each other, challenge

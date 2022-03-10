@@ -16,7 +16,9 @@ const LayoutComponent = (props) => {
             <img src={coinlylogo} alt="Coinly logo" />
           </div> 
             <Button width="20%">
+              <a href="https://app.coinly.me" target="_blank" rel='noreferrer noopener'>
               Go to App
+              </a>
             </Button>  
         </NavSection>
       </Nav>
